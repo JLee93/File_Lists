@@ -1,0 +1,44 @@
+    private static List<File> buildFileListHelper(File sourcePath, List<File> listOfFiles, String[] extensions){
+
+        if(sourcePath.listFiles() == null){
+
+            return listOfFiles;
+
+        }
+
+        for(File file : sourcePath.listFiles())
+        {
+            if(file.isDirectory())
+            {
+                buildFileListHelper(file, listOfFiles, extensions);
+            }
+            else
+            {
+
+                if(extensions.length <= 0){
+
+                    listOfFiles.add(file);
+
+                }
+
+                else {
+
+                    for (String extension : extensions) {
+
+                        if(file.getName().endsWith(extension)){
+
+                            listOfFiles.add(file);
+
+                        }
+
+                    }
+
+                }
+
+
+            }
+        }
+
+        return listOfFiles;
+
+    }

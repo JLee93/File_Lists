@@ -1,0 +1,4 @@
+.gitignore
+Resources/MassiveFiles
+.idea/**/workspace.xml
+out/
